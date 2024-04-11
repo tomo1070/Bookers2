@@ -1,0 +1,16 @@
+<div class="col-md-2">
+  <h2>User info</h2>
+  <%= image_tag @user.get_profile_image(100,100) %></p>
+  <p>name：<%= @user.name %></p>
+  <p>introdution %></p>
+  <%= link_to 'edit', edit_user_path(current_user), class: "btn btn-secondary" %>
+  
+  <h2>New book</h2>
+  <%= form_with model: @book do |f| %>
+  <h4>Title</h4>
+  <%= f.text_field :title %>
+  <h4>Opinion</h4>
+  <%= f.text_area :body %>
+  <%= f.submit 'Create Book' %>
+<% end %>
+</div>
