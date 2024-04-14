@@ -1,0 +1,8 @@
+<%= render 'books/left', user: @user, book: @book %>
+<% @users.each do |user| %>
+  <div>
+    <p><%= image_tag user.get_profile_image(100,100) %></p>
+    <p><%= user.name %></p>
+    <%= link_to 'Show', users_path(@user, @post) %>
+  </div>
+<% end %>

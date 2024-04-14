@@ -25,10 +25,13 @@
             <ul class="navbar-nav ml-auto">
             <% if user_signed_in? %>
             <li class="nav-item">
-              <%= link_to 'Users', user_path(current_user.id), class: 'nav-link text-dark' %>
+              <%= link_to 'Home', user_path(current_user), class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
-              <%= link_to 'Books', book_path(current_user.id), class: 'nav-link text-dark' %>
+              <%= link_to 'Users', users_path(current_user), class: 'nav-link text-dark' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Books', books_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
@@ -47,7 +50,7 @@
       </nav>
     </header>
     <main class="mb-auto">
-    <%= yield %>
+      <%= yield %>
     </main>
     <footer>
       CopyRight Infratop.inc

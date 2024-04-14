@@ -1,16 +1,12 @@
-<div class="row">
-  
-  <%= render 'books/left', user: @user %>
-
-  <% @books.each do |book| %>
+<%= render 'left', user: @user, book: @book %>
+<% @books.each do |book| %>
     <div>
       <%= link_to book_path(book.id) do %>
         <%= image_tag book.get_image %>
       <% end %>
-      <p>投稿ユーザー画像：<%= image_tag book.user.get_profile_image(100,100) %></p>
-      <p>本のタイトル：<%= book.title %></p>
-      <p>感想：<%= book.body %></p>
-      <p>ユーザーネーム：<%= book.user.name %></p>
+      <p><%= image_tag book.user.get_profile_image(100,100) %></p>
+      <p><%= book.title %></p>
+      <p><%= book.body %></p>
     </div>
     <% end %>
   </div>
