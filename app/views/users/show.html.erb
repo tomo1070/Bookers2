@@ -1,7 +1,15 @@
 <%= render 'books/left', user: @user, book: @book %>
 
-<div>
-   <%= image_tag @user.get_profile_image(100,100) %>
-  <% if @user == current_user %>
-  <% end %>
+<div class="col-md-4">
+  <%= image_tag @user.get_profile_image(100,100) %>
+  <% @user.books.each do |book| %>
+    <div>
+      <%= link_to book_path(book.id) do %>
+        <%= image_tag book.get_image %>
+      <% end %>
+      <p><%= image_tag book.user.get_profile_image(100,100) %></p>
+      <p><%= link_to book.title, book_path(book.id) %></p>
+      <p><%= book.body %></p>
+    </div>
+    <% end %>
 </div>

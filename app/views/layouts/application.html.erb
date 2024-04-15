@@ -28,7 +28,7 @@
               <%= link_to 'Home', user_path(current_user), class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
-              <%= link_to 'Users', users_path(current_user), class: 'nav-link text-dark' %>
+              <%= link_to 'Users', users_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
               <%= link_to 'Books', books_path, class: 'nav-link text-dark' %>
@@ -52,7 +52,7 @@
     <main class="mb-auto">
       <%= yield %>
     </main>
-    <footer>
+    <footer class="mx-auto">
       CopyRight Infratop.inc
     </footer>
   </body>
