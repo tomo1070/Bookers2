@@ -13,8 +13,12 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
-    @book = current_user
+    user = User.find(params[:id])
+      if user_params.present?
+        user.update(user_params)
+      else
+        render :edit
+      end
   end
 
   def update
