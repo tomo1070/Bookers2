@@ -1,8 +1,28 @@
-<%= render 'books/left', user: @user, book: @book %>
-<% @users.each do |user| %>
-  <div class="col-md-8">
-    <p><%= image_tag user.get_profile_image(100,100) %></p>
-    <p><%= user.name %></p>
-    <%= link_to 'Show', user_path(user.id) %>
-  </div>
-<% end %>
+<div class="col-md-4">
+  <%= render 'books/left', user: @user %>
+</div>
+
+<div class="col-md-8">
+  <h2>Users</h2>
+  <div class="container">
+      <div class="row">
+        <table class="table">
+        <thead>
+          <tr>
+            <th>image</th>
+            <th>name</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @users.each do |user| %>
+          <td><%= image_tag user.get_profile_image(100,100) %></td>
+          <td><%= user.name %></td>
+          <td><%= link_to 'Show', user_path(user.id) %></tb>
+        </tbody>
+        <% end %>
+        </table>
+      </div>
+    </div>
+</div>
