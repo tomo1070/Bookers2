@@ -31,7 +31,7 @@ class BooksController < ApplicationController
       flash.now[:notice] = "タイトルは空欄にできません。"
       render :edit
     elsif @book.update(book_params)
-      flash[:notice] = "投稿に成功しました。"
+      flash[:notice] = "You have created book successfully."
       redirect_to book_path(@book)
     else
       @books = Book.all
@@ -42,8 +42,8 @@ class BooksController < ApplicationController
   end
 
   def show
-    @user = current_user
     @books = Book.find(params[:id])
+    @user = @books.user
   end
 
   def destroy

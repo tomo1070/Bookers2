@@ -21,7 +21,7 @@
           <%= image_tag @user.get_profile_image(100, 100) %>
           <p><%= @user.name %></p>
           <% end %></td>
-          <td><%= link_to @books.title, book_path(@user.id) %></td>
+          <td><%= link_to @books.title, book_path(@books) %></td>
           <td><%= @books.body %></td>
             <% if @books.user == current_user %>
               <td><%= link_to "Edit", edit_book_path(@books), class: "btn btn-success", style: "color: white;" %></td>
@@ -30,5 +30,5 @@
         </tbody>
       </table>
     </div>
-    </div>
   </div>
+</div>
