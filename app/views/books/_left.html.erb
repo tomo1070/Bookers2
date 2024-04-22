@@ -3,7 +3,7 @@
     <%= image_tag user.get_profile_image(100,100) %></p>
       <p>name：<%= user.name %></p>
       <p>introduction : <%= user.introduction %></p>
-    <%= link_to edit_user_path(current_user), class: "btn btn-secondary" do %>
+        <%= link_to edit_user_path(user.id), class: "btn btn-secondary" do %>
       <i class="fa-solid fa-user-cog"></i>
     <% end %>
 

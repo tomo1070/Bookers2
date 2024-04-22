@@ -1,7 +1,9 @@
-<div class="col-md-4">
-  <% if @book.errors.any? %>
-      <%= @book.errors.count %>errors prohibited this obj from being saved:
-      <ul>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <% if @book.errors.any? %>
+        <%= @book.errors.count %>errors prohibited this obj from being saved:
+        <ul>
         <% @book.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
@@ -10,10 +12,8 @@
   <%= render 'left', user: @user %>
 </div>
 
-<div class="col-md-8">
+<div class="col-md-8 offset-md-1">
   <h2>Booksa</h2>
-  <div class="container">
-      <div class="row">
         <table class="table">
         <thead>
           <tr>
@@ -28,12 +28,12 @@
           <% @books.each do |book| %>
             <%= link_to book_path(book.id) do %>
           <% end %>
-          <td><%= image_tag book.user.get_profile_image(100,100) %></td>
-          <td><%= link_to book.title, user_path(@user.id) %></td>
+          <td><%= link_to(image_tag(book.user.get_profile_image(100,100)), user_path(book.user.id)) %></td>
+          <td><%= link_to book.title, book_path(book) %></td>
           <td><%= book.body %></td>
         </tbody>
       <% end %>
     </table>
     </div>
-    </div>
   </div>
+</div>

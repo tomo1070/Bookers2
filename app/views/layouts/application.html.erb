@@ -41,7 +41,7 @@
                         </li>
                         <li class="nav-item">
                             <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link text-dark' do %>
-                                <i class="fa-solid fa-sign-out-alt"></i> Log 
+                                <i class="fa-solid fa-sign-out-alt"></i> Log out
                             <% end %>
                         </li>
                     <% else %>
@@ -74,6 +74,7 @@
     <main class="mb-auto">
       <div class="container">
         <div class="row">
+        <%= flash[:notice] %>
           <%= yield %>
         </div>
       </div>

@@ -1,8 +1,10 @@
-<div class="col-md-4">
-  <%= render 'books/left', user: @user %>
-</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render 'books/left', user: @user %>
+    </div>
 
-<div class="col-md-8">
+<div class="col-md-8 offset-md-1">
   <h2>Books</h2>
   <div class="container">
       <div class="row">
@@ -20,7 +22,7 @@
           <% @user.books.each do |book| %>
           <%= link_to book_path(book.id) do %>
           <% end %>
-          <td><%= image_tag book.user.get_profile_image(100,100) %></td>
+          <td><%= link_to(image_tag(book.user.get_profile_image(100,100)), user_path(book.user.id)) %></td>
           <td><%= link_to book.title, book_path(book.id) %></td>
           <td><%= book.body %></td>
         </tbody>

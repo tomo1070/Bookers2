@@ -1,5 +1,6 @@
 
 <div class="container">
+  <div class="row">
   <h2 class="text-center mb-4">User info</h2>
   <% if @user.errors.any? %>
     <div id="error_explanation">
@@ -12,14 +13,14 @@
     </div>
   <% end %>
 </div>
-  
+
 <div class="row">
-  <div class="col-md-6 offset-md-3">
+  <div class="col-md-6">
     <%= form_with model: @user do |f| %>
     <label for="inputName">Name</label><br>
     <%= f.text_field :name, autofocus: true, id: "Name"%><br>
     <label for="inputImage">Image</label><br>
-    <%= f.file_field :profile_image, autofocus: true, accept: "image/*" %> 
+    <%= f.file_field :profile_image, autofocus: true, accept: "image/*" %><br>
     <label for="inputIntroduction">Introduction</label><br>
     <%= f.text_area :introduction, autofocus: true, id: "Introduction" %><br>
     <%= f.submit "Update User" %>
